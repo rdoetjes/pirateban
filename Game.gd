@@ -1,7 +1,9 @@
 extends Node2D
 
-var level = 1
+var level: int = 1
+var steps: int = 1
 var PlayField: TileMap
+var Player: Area2D
 
 func read_level() -> void:
 	var x: int = 0
@@ -25,20 +27,28 @@ func read_level() -> void:
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
 				"P":
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,0))	
+					Player.set_grid_position(Vector2i(x, y))
 				_:
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(3,5))	
 			x += 1
 		y += 1
 		x = 0
 	f.close()
+	$UI/PanelContainer/HBoxContainer/LevelLbl.text = "LEVEL: "+str(level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayField = $PlayField
+	Player = $Player
 	read_level()
 
+func add_step():
+	steps += 1
+
+func add_level():
+	level += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
 	pass

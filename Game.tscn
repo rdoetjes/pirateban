@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://didk87oe2aaft"]
+[gd_scene load_steps=10 format=3 uid="uid://didk87oe2aaft"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_2dvqh"]
 [ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://Dungeon Tiles/Full.png" id="1_ahwdc"]
+[ext_resource type="PackedScene" uid="uid://5kxetn5qfd3d" path="res://Player.tscn" id="2_70xan"]
+[ext_resource type="FontFile" uid="uid://ds4svq3pxxvdv" path="res://fonts/Treasuremap-Ea1vj.ttf" id="3_smxhm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh3eh"]
 texture = ExtResource("1_ahwdc")
@@ -147,12 +149,71 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yh3eh")
 
+[sub_resource type="Theme" id="Theme_tfcet"]
+default_font = ExtResource("3_smxhm")
+default_font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmt0c"]
+font = ExtResource("3_smxhm")
+font_color = Color(0.819608, 0.572549, 0.180392, 1)
+outline_size = 3
+outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4cjv5"]
+font = ExtResource("3_smxhm")
+font_color = Color(0.819608, 0.572549, 0.180392, 1)
+outline_size = 3
+outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2dvqh")
-
-[node name="UI" type="CanvasLayer" parent="."]
+metadata/_edit_group_ = true
 
 [node name="PlayField" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yvl2m")
 cell_quadrant_size = 32
 format = 2
+
+[node name="Player" parent="." instance=ExtResource("2_70xan")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.5
+offset_right = 65.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme = SubResource("Theme_tfcet")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="UI/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
+
+[node name="LevelLbl" type="Label" parent="UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "LEVEL: 1"
+label_settings = SubResource("LabelSettings_jmt0c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="Control" parent="UI/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 2.08165e-12)
+layout_mode = 2
+
+[node name="StepsLbl" type="Label" parent="UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "STEPS: 1"
+label_settings = SubResource("LabelSettings_4cjv5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator3" type="Control" parent="UI/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
