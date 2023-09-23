@@ -53,7 +53,6 @@ func set_grid_position(new_pos : Vector2i, use_tween: bool) -> void:
 		$Sprite2D.position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
 		grid_pos = new_pos
 
-
 func _physics_process(_delta):
 	if enable_input:
 		process_input()

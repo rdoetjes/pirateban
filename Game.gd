@@ -41,7 +41,7 @@ func read_level() -> void:
 				"D":
 					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,4))	
 				"T":
-					#PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,2))	
 				"P":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
@@ -69,3 +69,9 @@ func add_level() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
+
+func _on_check_button_toggled(_button_pressed):
+	if $AudioStreamPlayer2D.playing: 
+		$AudioStreamPlayer2D.stop()
+	else:
+		$AudioStreamPlayer2D.play()
