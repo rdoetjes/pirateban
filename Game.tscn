@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://didk87oe2aaft"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_2dvqh"]
-[ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://Dungeon Tiles/Full.png" id="1_ahwdc"]
 [ext_resource type="PackedScene" uid="uid://5kxetn5qfd3d" path="res://Player.tscn" id="2_70xan"]
+[ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://tiles/Full.png" id="2_excr5"]
 [ext_resource type="FontFile" uid="uid://ds4svq3pxxvdv" path="res://fonts/Treasuremap-Ea1vj.ttf" id="3_smxhm"]
 [ext_resource type="AudioStream" uid="uid://m2vc1y3vgl56" path="res://songs/pirate-music-14288.mp3" id="5_mm7s5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37i2f"]
-texture = ExtResource("1_ahwdc")
+texture = ExtResource("2_excr5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -168,7 +168,7 @@ texture_region_size = Vector2i(32, 32)
 3:5/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m13oh"]
-texture = ExtResource("1_ahwdc")
+texture = ExtResource("2_excr5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
