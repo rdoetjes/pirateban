@@ -26,6 +26,7 @@ func read_level() -> void:
 	var x: int = 0
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
+	var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
 	
 	var f = check_level_files()
 	if null == f:
@@ -40,11 +41,13 @@ func read_level() -> void:
 				"D":
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,4))	
 				"T":
+					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
 				"P":
+					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					Player.set_grid_position(Vector2i(x, y), false)
 				_:
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(3,5))	
+					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 			x += 1
 		y += 1
 		x = 0
