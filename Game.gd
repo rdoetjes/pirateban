@@ -39,10 +39,10 @@ func read_level() -> void:
 				'W':
 					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
 				"D":
-					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,4))	
+					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,4))	
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,2))	
+					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
 				"P":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					Player.set_grid_position(Vector2i(x, y), false)
