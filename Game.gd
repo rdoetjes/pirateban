@@ -52,4 +52,3 @@ func add_level():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
-	pass
