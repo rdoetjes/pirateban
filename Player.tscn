@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5kxetn5qfd3d"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8qkv1"]
-[ext_resource type="Texture2D" uid="uid://bm3v1okfdb7k2" path="res://icon.svg" id="1_vbyth"]
+[ext_resource type="Texture2D" uid="uid://c06pjigfmsn62" path="res://Image/Icon9.png" id="2_ux4tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7htvx"]
 
@@ -14,5 +14,4 @@ scale = Vector2(1.58, 1.58)
 shape = SubResource("RectangleShape2D_7htvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_vbyth")
+texture = ExtResource("2_ux4tf")
