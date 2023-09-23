@@ -369,6 +369,10 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_70xan")]
 
+[node name="Treasures" type="Node2D" parent="." groups=["Treasures"]]
+
+[node name="Doors" type="Node2D" parent="." groups=["Doors"]]
+
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
