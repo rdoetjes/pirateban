@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://didk87oe2aaft"]
+[gd_scene load_steps=11 format=3 uid="uid://didk87oe2aaft"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_2dvqh"]
 [ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://Dungeon Tiles/Full.png" id="1_ahwdc"]
 [ext_resource type="PackedScene" uid="uid://5kxetn5qfd3d" path="res://Player.tscn" id="2_70xan"]
 [ext_resource type="FontFile" uid="uid://ds4svq3pxxvdv" path="res://fonts/Treasuremap-Ea1vj.ttf" id="3_smxhm"]
+[ext_resource type="AudioStream" uid="uid://m2vc1y3vgl56" path="res://songs/pirate-music-14288.mp3" id="5_mm7s5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh3eh"]
 texture = ExtResource("1_ahwdc")
@@ -220,3 +221,8 @@ vertical_alignment = 1
 [node name="Separator3" type="Control" parent="UI/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 2.08165e-12)
 layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mm7s5")
+volume_db = -32.0
+autoplay = true

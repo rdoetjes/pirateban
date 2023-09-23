@@ -1,9 +1,9 @@
 extends Node2D
 
-var level: int = 1
-var steps: int = -1
-var PlayField: TileMap
-var Player: Area2D
+static var level: int = 1
+static var steps: int = -1
+static var PlayField: TileMap
+static var Player: Area2D
 
 func read_level() -> void:
 	steps = -1
