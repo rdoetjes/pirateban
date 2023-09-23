@@ -6,6 +6,7 @@ var PlayField: TileMap
 var Player: Area2D
 
 func read_level() -> void:
+	steps = -1
 	var x: int = 0
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]

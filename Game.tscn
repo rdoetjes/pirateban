@@ -187,6 +187,9 @@ offset_left = -65.5
 offset_right = 65.5
 offset_bottom = 26.0
 grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
 theme = SubResource("Theme_tfcet")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer"]
