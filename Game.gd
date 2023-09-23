@@ -10,12 +10,20 @@ func read_level() -> void:
 	var x: int = 0
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
-	var f = FileAccess.open("res://levels/level"+str(level)+".txt", FileAccess.READ)
 	
+	#iterate down the levels, when a level file can't be found to find the last level
+	while not FileAccess.file_exists("res://levels/level"+str(level)+".txt"):
+		level -= 1
+		if level < 0:
+			printerr("Could find valid level")
+			get_tree().quit()
+			return
+			
+	var f = FileAccess.open("res://levels/level"+str(level)+".txt", FileAccess.READ)	
 	if null == f:
 		printerr("Could not read level"+str(level)+".txt")
 		get_tree().quit()
-		return # why do I need this? I called quit!
+		return
 		
 	while not f.eof_reached():
 		var line = f.get_line()
