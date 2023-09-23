@@ -1,7 +1,7 @@
 extends Node2D
 
 static var level: int = 1
-static var steps: int = -1
+static var steps: int = 0
 static var PlayField: TileMap
 static var Player: Area2D
 
@@ -22,7 +22,7 @@ func check_level_files() -> FileAccess:
 	return f
 
 func read_level() -> void:
-	steps = -1
+	steps = 0
 	var x: int = 0
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
@@ -39,10 +39,10 @@ func read_level() -> void:
 				'W':
 					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
 				"D":
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,4))	
+					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,4))	
 				"T":
-					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
+					#PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+					PlayField.set_cell(0, Vector2i(x, y), 1, Vector2i(6,2))	
 				"P":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					Player.set_grid_position(Vector2i(x, y), false)
