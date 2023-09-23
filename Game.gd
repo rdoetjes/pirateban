@@ -43,12 +43,12 @@ func _ready():
 	Player = $Player
 	read_level()
 
-func add_step():
+func add_step() -> void:
 	steps += 1
 
-func add_level():
+func add_level() -> void:
 	level += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
