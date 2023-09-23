@@ -27,7 +27,7 @@ func read_level() -> void:
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
 				"P":
-					Player.set_grid_position(Vector2i(x, y))
+					Player.set_grid_position(Vector2i(x, y), false)
 				_:
 					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(3,5))	
 			x += 1
