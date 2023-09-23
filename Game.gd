@@ -1,7 +1,7 @@
 extends Node2D
 
 var level: int = 1
-var steps: int = 1
+var steps: int = -1
 var PlayField: TileMap
 var Player: Area2D
 
