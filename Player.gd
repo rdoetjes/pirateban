@@ -52,14 +52,11 @@ func set_grid_position(new_pos: Vector2i, use_tween: bool) -> void:
 		var v: Vector2=Vector2(new_pos.x*32+16, new_pos.y*32+16)-position
 		ray.set_target_position(v)
 		ray.force_raycast_update()
-		print(str(ray.get_collider()))
-		
 		if !ray.is_colliding() || ray.get_collider() is Door:
 			move_anim(new_pos)
 		elif ray.get_collider( ) is Treasure:
 			var t: Treasure = ray.get_collider()
 			var vt: Vector2i = new_pos - grid_pos
-			print(str(vt))
 			if t.set_grid_position(Vector2i(t.grid_pos.x+vt.x,t.grid_pos.y+vt.y), true):
 				move_anim(new_pos)
 	else:
