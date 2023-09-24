@@ -70,7 +70,7 @@ func add_level() -> void:
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
 
-func _on_check_button_toggled(_button_pressed):
+func _on_check_button_pressed():
 	if $AudioStreamPlayer2D.playing: 
 		$AudioStreamPlayer2D.stop()
 	else:
