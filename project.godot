@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="Piratban"
+config/description="Pirate Ban, is a clone of the infamous and wonderful Sokoban game, albeit with a Pirate theme."
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://images/Icon9.png"
 
 [display]
 
