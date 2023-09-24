@@ -60,8 +60,8 @@ func set_grid_position(new_pos: Vector2i, use_tween: bool) -> void:
 			var t: Treasure = ray.get_collider()
 			var vt: Vector2i = new_pos - grid_pos
 			print(str(vt))
-			t.set_grid_position(Vector2i(t.grid_pos.x+vt.x,t.grid_pos.y+vt.y), true)
-			print("moving treasure")
+			if t.set_grid_position(Vector2i(t.grid_pos.x+vt.x,t.grid_pos.y+vt.y), true):
+				move_anim(new_pos)
 	else:
 		position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
 		grid_pos = new_pos

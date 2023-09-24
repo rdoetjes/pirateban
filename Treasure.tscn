@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Treasure" type="Area2D"]
+z_index = 1
 disable_mode = 2
 script = ExtResource("1_pqrv6")
 metadata/_edit_group_ = true

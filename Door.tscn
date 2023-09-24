@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Door.gd" id="1_f222p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvofe"]
-size = Vector2(32, 32)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpe3s"]
 atlas = ExtResource("1_b2buv")
