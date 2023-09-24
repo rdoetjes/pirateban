@@ -2,8 +2,8 @@ extends Area2D
 
 class_name  Treasure
 
-static var grid_pos: Vector2i
-static var ray: RayCast2D
+var grid_pos: Vector2i
+var ray: RayCast2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -50,6 +50,9 @@ disable_mode = 2
 script = ExtResource("1_pqrv6")
 metadata/_edit_group_ = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_qmdnt")
@@ -58,6 +61,3 @@ shape = SubResource("RectangleShape2D_qmdnt")
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_dftmq")
 frame_progress = 0.172407
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 32)

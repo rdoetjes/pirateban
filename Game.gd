@@ -4,8 +4,8 @@ static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
 static var Player: CharacterBody2D
-static var TreasureScene: PackedScene = preload("res://Treasure.tscn")
-static var DoorScene: PackedScene = preload("res://Door.tscn")
+var TreasureScene: PackedScene = preload("res://Treasure.tscn")
+var DoorScene: PackedScene = preload("res://Door.tscn")
 
 func check_level_files() -> FileAccess:
 	#iterate down the levels, when a level file can't be found to find the last level
@@ -49,7 +49,7 @@ func read_level() -> void:
 					add_child(Door)
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					var Treasure = TreasureScene.instantiate()
+					var Treasure =  TreasureScene.instantiate()
 					Treasure.name = "Treasure"+str(x)+"_"+str(y)
 					Treasure.set_grid_position(Vector2i(x, y), false)
 					add_child(Treasure) 
