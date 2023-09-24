@@ -4,6 +4,7 @@ static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
 static var Player: CharacterBody2D
+
 var TreasureScene: PackedScene = preload("res://Treasure.tscn")
 var DoorScene: PackedScene = preload("res://Door.tscn")
 
@@ -76,9 +77,29 @@ func add_step() -> void:
 func add_level() -> void:
 	level += 1
 
+func check_all_crates_in_exit() -> bool:
+	var door_pos = []
+	var treasure_pos = []
+	
+	for child in get_children():
+		if child is Door:
+			door_pos.push_back(child.position)
+		if child is Treasure:
+			treasure_pos.push_back(child.position)
+	
+	door_pos.sort()
+	treasure_pos.sort()
+	#This is convenient!!!
+	if door_pos == treasure_pos:
+		return true
+	return false
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
+	if check_all_crates_in_exit():
+		level += 1
+		read_level()
 
 func _on_check_button_pressed():
 	if $AudioStreamPlayer2D.playing: 
