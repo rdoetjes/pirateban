@@ -5,7 +5,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7htvx"]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
+disable_mode = 2
 script = ExtResource("1_8qkv1")
 metadata/_edit_group_ = true
 

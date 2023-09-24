@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var grid_pos: Vector2i
 var enable_input: bool = true
@@ -39,9 +39,12 @@ func disable_game_input() -> void:
 
 func set_grid_position(new_pos : Vector2i, use_tween: bool) -> void:
 	if use_tween:
+		#collision detection with walls
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create($Sprite2D.position, Vector2(new_pos.x*32+16, new_pos.y*32+16),1)
+		query.set_collide_with_areas(true)
 		var result = space_state.intersect_ray(query)
+		print(result)
 		if result.is_empty():
 			disable_game_input()
 			var tween = create_tween()
@@ -52,7 +55,7 @@ func set_grid_position(new_pos : Vector2i, use_tween: bool) -> void:
 	else:
 		$Sprite2D.position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
 		grid_pos = new_pos
-
+	
 func _physics_process(_delta):
 	if enable_input:
 		process_input()

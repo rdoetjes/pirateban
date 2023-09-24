@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Treasure.gd" id="1_pqrv6"]
 [ext_resource type="Texture2D" uid="uid://dm8tlbswepm7d" path="res://images/treasure_chests_32x32.png" id="1_xyxgr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqu53"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmdnt"]
 size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c27v"]
@@ -45,12 +45,13 @@ animations = [{
 }]
 
 [node name="Treasure" type="Area2D"]
+disable_mode = 2
 script = ExtResource("1_pqrv6")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.08165e-12, -1)
-shape = SubResource("RectangleShape2D_yqu53")
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_qmdnt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)

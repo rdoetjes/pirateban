@@ -3,7 +3,7 @@ extends Node2D
 static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
-static var Player: Area2D
+static var Player: CharacterBody2D
 static var TreasureScene: PackedScene = preload("res://Treasure.tscn")
 static var DoorScene: PackedScene = preload("res://Door.tscn")
 
@@ -43,10 +43,12 @@ func read_level() -> void:
 				"D":
 					var Door = DoorScene.instantiate()
 					Door.set_grid_position(Vector2i(x, y))
+					Door.name = "Door"+str(x)+"_"+str(y)
 					add_child(Door)
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					var Treasure = TreasureScene.instantiate()
+					var Treasure =  preload("res://Treasure.tscn").instantiate()
+					Treasure.name = "Treasure"+str(x)+"_"+str(y)
 					Treasure.set_grid_position(Vector2i(x, y), false)
 					add_child(Treasure) 
 				"P":
