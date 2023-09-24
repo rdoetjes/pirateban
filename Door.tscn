@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://5trnwq2j08t3"]
+
+[ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://tiles/Full.png" id="1_b2buv"]
+[ext_resource type="Script" path="res://Door.gd" id="1_f222p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvofe"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpe3s"]
+atlas = ExtResource("1_b2buv")
+region = Rect2(192, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yhh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpe3s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_f222p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dvofe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0yhh8")

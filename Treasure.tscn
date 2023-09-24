@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://8aohec7rqq40"]
+
+[ext_resource type="Script" path="res://Treasure.gd" id="1_pqrv6"]
+[ext_resource type="Texture2D" uid="uid://dm8tlbswepm7d" path="res://images/treasure_chests_32x32.png" id="1_xyxgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqu53"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c27v"]
+atlas = ExtResource("1_xyxgr")
+region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrwk0"]
+atlas = ExtResource("1_xyxgr")
+region = Rect2(288, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oolpr"]
+atlas = ExtResource("1_xyxgr")
+region = Rect2(288, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dftmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c27v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrwk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oolpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrwk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Treasure" type="Area2D"]
+script = ExtResource("1_pqrv6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -1)
+shape = SubResource("RectangleShape2D_yqu53")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_dftmq")
+frame_progress = 0.172407

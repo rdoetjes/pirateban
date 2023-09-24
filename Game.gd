@@ -4,6 +4,8 @@ static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
 static var Player: Area2D
+static var TreasureScene: PackedScene = preload("res://Treasure.tscn")
+static var DoorScene: PackedScene = preload("res://Door.tscn")
 
 func check_level_files() -> FileAccess:
 	#iterate down the levels, when a level file can't be found to find the last level
@@ -39,10 +41,14 @@ func read_level() -> void:
 				'W':
 					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
 				"D":
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,4))	
+					var Door = DoorScene.instantiate()
+					Door.set_grid_position(Vector2i(x, y))
+					add_child(Door)
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					PlayField.set_cell(0, Vector2i(x, y), 0, Vector2i(6,2))	
+					var Treasure = TreasureScene.instantiate()
+					Treasure.set_grid_position(Vector2i(x, y), false)
+					add_child(Treasure) 
 				"P":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 					Player.set_grid_position(Vector2i(x, y), false)
@@ -75,3 +81,9 @@ func _on_check_button_pressed():
 		$AudioStreamPlayer2D.stop()
 	else:
 		$AudioStreamPlayer2D.play()
+
+func find_by_class(node: Node, className : String, result : Array) -> void:
+	if node.is_class(className) :
+		result.push_back(node)
+	for child in node.get_children():
+		find_by_class(child, className, result)
