@@ -1,6 +1,6 @@
 extends Node2D
 
-static var level: int = 1
+static var level: int = 3
 static var steps: int = 0
 static var PlayField: TileMap
 static var Player: CharacterBody2D
@@ -40,25 +40,24 @@ func read_level() -> void:
 	while not f.eof_reached():
 		var line = f.get_line()
 		for c in line:
-			match(c):
-				'W':
+			if c == 'W':
 					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
-				"D":
-					var Door = DoorScene.instantiate()
-					Door.set_grid_position(Vector2i(x, y))
-					Door.name = "Door"+str(x)+"_"+str(y)
-					add_child(Door)
-				"T":
-					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					var Treasure =  TreasureScene.instantiate()
-					Treasure.name = "Treasure"+str(x)+"_"+str(y)
-					Treasure.set_grid_position(Vector2i(x, y), false)
-					add_child(Treasure) 
-				"P":
-					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					Player.set_grid_position(Vector2i(x, y), false)
-				_:
-					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+			if c == 'B' || c == 'D':
+				var Door = DoorScene.instantiate()
+				Door.set_grid_position(Vector2i(x, y))
+				Door.name = "Door"+str(x)+"_"+str(y)
+				add_child(Door)
+			if c == 'B' || c == 'T':
+				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+				var Treasure =  TreasureScene.instantiate()
+				Treasure.name = "Treasure"+str(x)+"_"+str(y)
+				Treasure.set_grid_position(Vector2i(x, y), false)
+				add_child(Treasure) 
+			if c == "P":
+				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+				Player.set_grid_position(Vector2i(x, y), false)
+			if c == ' ' || c == '.':
+				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 			x += 1
 		y += 1
 		x = 0
