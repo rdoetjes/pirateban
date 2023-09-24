@@ -29,7 +29,6 @@ func read_level() -> void:
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
 	var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
-	var del = []
 	
 	delete_old_objects()
 	
