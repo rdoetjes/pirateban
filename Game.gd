@@ -1,6 +1,6 @@
 extends Node2D
 
-static var level: int = 1
+static var level: int = 4
 static var steps: int = 0
 static var PlayField: TileMap
 static var Player: CharacterBody2D
