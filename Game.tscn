@@ -214,13 +214,16 @@ layer_1/tile_data = PackedInt32Array()
 follow_viewport_enabled = true
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -65.5
-offset_right = 65.5
-offset_bottom = 26.0
+anchor_bottom = 1.0
+offset_left = -164.5
+offset_top = -33.0
+offset_right = 164.5
 grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
