@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 var grid_pos: Vector2i
 var enable_input: bool = true
+var ray: RayCast2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ray = $RayCast2D
 	enable_game_input()
 
 func process_input()-> void:
@@ -39,21 +41,19 @@ func disable_game_input() -> void:
 
 func set_grid_position(new_pos : Vector2i, use_tween: bool) -> void:
 	if use_tween:
-		#collision detection with walls
-		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create($Sprite2D.position, Vector2(new_pos.x*32+16, new_pos.y*32+16),1)
-		query.set_collide_with_areas(true)
-		var result = space_state.intersect_ray(query)
-		print(result)
-		if result.is_empty():
+		var v: Vector2=Vector2(new_pos.x*32+16, new_pos.y*32+16)-position
+		ray.set_target_position(v)
+		ray.force_raycast_update()
+		if !ray.is_colliding():
 			disable_game_input()
 			var tween = create_tween()
 			tween.connect("finished", enable_game_input)
-			tween.tween_property($Sprite2D, "position", Vector2(new_pos.x*32+16, new_pos.y*32+16), 0.15)
+			tween.tween_property(self, "position", Vector2(new_pos.x*32+16, new_pos.y*32+16), 0.15)
 			get_parent().add_step()
 			grid_pos = new_pos
+			
 	else:
-		$Sprite2D.position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
+		position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
 		grid_pos = new_pos
 	
 func _physics_process(_delta):

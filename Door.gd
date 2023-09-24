@@ -10,4 +10,4 @@ func _process(_delta):
 	pass
 
 func set_grid_position(pos : Vector2) -> void:
-	$AnimatedSprite2D.position = Vector2(pos.x*32+16, pos.y*32+16)	
+	position = Vector2(pos.x*32+16, pos.y*32+16)	

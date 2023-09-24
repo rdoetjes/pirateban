@@ -47,7 +47,7 @@ func read_level() -> void:
 					add_child(Door)
 				"T":
 					PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-					var Treasure =  preload("res://Treasure.tscn").instantiate()
+					var Treasure = TreasureScene.instantiate()
 					Treasure.name = "Treasure"+str(x)+"_"+str(y)
 					Treasure.set_grid_position(Vector2i(x, y), false)
 					add_child(Treasure) 
