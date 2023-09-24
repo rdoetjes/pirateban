@@ -39,19 +39,29 @@ func enable_game_input() -> void:
 func disable_game_input() -> void:
 	enable_input = false
 
-func set_grid_position(new_pos : Vector2i, use_tween: bool) -> void:
+func move_anim(new_pos: Vector2i):
+	disable_game_input()
+	var tween = create_tween()
+	tween.connect("finished", enable_game_input)
+	tween.tween_property(self, "position", Vector2(new_pos.x*32+16, new_pos.y*32+16), 0.15)
+	get_parent().add_step()
+	grid_pos = new_pos
+
+func set_grid_position(new_pos: Vector2i, use_tween: bool) -> void:
 	if use_tween:
 		var v: Vector2=Vector2(new_pos.x*32+16, new_pos.y*32+16)-position
 		ray.set_target_position(v)
 		ray.force_raycast_update()
-		if !ray.is_colliding():
-			disable_game_input()
-			var tween = create_tween()
-			tween.connect("finished", enable_game_input)
-			tween.tween_property(self, "position", Vector2(new_pos.x*32+16, new_pos.y*32+16), 0.15)
-			get_parent().add_step()
-			grid_pos = new_pos
-			
+		print(str(ray.get_collider()))
+		
+		if !ray.is_colliding() || ray.get_collider() is Door:
+			move_anim(new_pos)
+		elif ray.get_collider( ) is Treasure:
+			var t: Treasure = ray.get_collider()
+			var vt: Vector2i = new_pos - grid_pos
+			print(str(vt))
+			t.set_grid_position(Vector2i(t.grid_pos.x+vt.x,t.grid_pos.y+vt.y), true)
+			print("moving treasure")
 	else:
 		position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
 		grid_pos = new_pos

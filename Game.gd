@@ -29,6 +29,9 @@ func read_level() -> void:
 	var y: int = 0
 	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
 	var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
+	var del = []
+	
+	delete_old_objects()
 	
 	var f = check_level_files()
 	if null == f:
@@ -84,8 +87,7 @@ func _on_check_button_pressed():
 	else:
 		$AudioStreamPlayer2D.play()
 
-func find_by_class(node: Node, className : String, result : Array) -> void:
-	if node.is_class(className) :
-		result.push_back(node)
-	for child in node.get_children():
-		find_by_class(child, className, result)
+func delete_old_objects() -> void:
+	for child in self.get_children():
+		if child is Treasure || child is Door:
+			child.queue_free()
