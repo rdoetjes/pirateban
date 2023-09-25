@@ -69,7 +69,7 @@ func read_level() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayField = $PlayField
-	var tileset = PlayField.get_tileset()
+	var tileset: TileSet = PlayField.get_tileset()
 	tileset.set_tile_size(Vector2i(cell_size,cell_size))
 	Player = $Player
 	read_level()
