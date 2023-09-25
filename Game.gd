@@ -1,7 +1,7 @@
 extends Node2D
 
-const grid_size: int = 32
-const grid_offset: int = grid_size >> 1 #we don't need to set Project->GDScript->Integer Division Warnings to Ignore
+const cell_size: int = 32
+const half_cell_size: int = cell_size >> 1 #we don't need to set Project->GDScript->Integer Division Warnings to Ignore
 static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
@@ -70,7 +70,7 @@ func read_level() -> void:
 func _ready():
 	PlayField = $PlayField
 	var tileset = PlayField.get_tileset()
-	tileset.set_tile_size(Vector2i(grid_size,grid_size))
+	tileset.set_tile_size(Vector2i(cell_size,cell_size))
 	Player = $Player
 	read_level()
 
