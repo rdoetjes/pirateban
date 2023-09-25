@@ -1,5 +1,7 @@
 extends Node2D
 
+const grid_size: int = 32
+const grid_offset: int = grid_size/2
 static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
@@ -44,15 +46,15 @@ func read_level() -> void:
 					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
 			if c == 'B' || c == 'D':
 				var Door = DoorScene.instantiate()
-				Door.set_grid_position(Vector2i(x, y))
-				Door.name = "Door"+str(x)+"_"+str(y)
 				add_child(Door)
+				Door.name = "Door"+str(x)+"_"+str(y)
+				Door.set_grid_position(Vector2i(x, y))
 			if c == 'B' || c == 'T':
 				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 				var Treasure =  TreasureScene.instantiate()
 				Treasure.name = "Treasure"+str(x)+"_"+str(y)
-				Treasure.set_grid_position(Vector2i(x, y), false)
 				add_child(Treasure) 
+				Treasure.set_grid_position(Vector2i(x, y), false)
 			if c == "P":
 				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 				Player.set_grid_position(Vector2i(x, y), false)

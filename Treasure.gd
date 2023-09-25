@@ -16,16 +16,16 @@ func _process(_delta):
 	
 func set_grid_position(new_pos : Vector2i, use_tween: bool) -> bool:
 	if use_tween:
-		var v: Vector2 = Vector2(new_pos.x*32+16, new_pos.y*32+16) - position
+		var v: Vector2 = Vector2(new_pos.x*get_parent().grid_size+get_parent().grid_offset, new_pos.y*get_parent().grid_size+get_parent().grid_offset) - position
 		ray.set_target_position(v)
 		ray.force_raycast_update()
 		if !ray.is_colliding() || ray.get_collider() is Door:
 			var tween = create_tween()
-			tween.tween_property(self, "position", Vector2(new_pos.x*32+16, new_pos.y*32+16), 0.15)
+			tween.tween_property(self, "position", Vector2(new_pos.x*get_parent().grid_size+get_parent().grid_offset, new_pos.y*get_parent().grid_size+get_parent().grid_offset), 0.15)
 			grid_pos = new_pos
 			return true
 		return false
 	else:
-		position = Vector2(new_pos.x*32+16, new_pos.y*32+16)	
+		position = Vector2(new_pos.x*get_parent().grid_size+get_parent().grid_offset, new_pos.y*get_parent().grid_size+get_parent().grid_offset)	
 		grid_pos = new_pos
 		return true
