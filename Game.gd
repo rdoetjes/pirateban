@@ -1,7 +1,7 @@
 extends Node2D
 
 const grid_size: int = 32
-const grid_offset: int = grid_size/2
+const grid_offset: int = grid_size >> 1 #we don't need to set Project->GDScript->Integer Division Warnings to Ignore
 static var level: int = 1
 static var steps: int = 0
 static var PlayField: TileMap
