@@ -105,8 +105,6 @@ func check_all_crates_in_exit() -> bool:
 		return true
 	return false
 	
-	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
