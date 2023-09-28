@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://didk87oe2aaft"]
+[gd_scene load_steps=14 format=3 uid="uid://didk87oe2aaft"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_2dvqh"]
 [ext_resource type="PackedScene" uid="uid://5kxetn5qfd3d" path="res://Player.tscn" id="2_70xan"]
 [ext_resource type="Texture2D" uid="uid://o7630pw8fhds" path="res://tiles/Full.png" id="2_excr5"]
 [ext_resource type="FontFile" uid="uid://ds4svq3pxxvdv" path="res://fonts/Treasuremap-Ea1vj.ttf" id="3_smxhm"]
 [ext_resource type="AudioStream" uid="uid://m2vc1y3vgl56" path="res://songs/pirate-music-14288.mp3" id="5_mm7s5"]
+[ext_resource type="Theme" uid="uid://bwslt4y0xo0yw" path="res://Theme.tres" id="5_y24fb"]
 [ext_resource type="Texture2D" uid="uid://b853hw6b0tdh7" path="res://images/speaker.png" id="5_ygxju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37i2f"]
@@ -240,6 +241,7 @@ label_settings = SubResource("LabelSettings_m804t")
 
 [node name="Button" type="Button" parent="UI/LevelCleared/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_y24fb")
 text = "NEXT"
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
