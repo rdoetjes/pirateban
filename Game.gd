@@ -2,11 +2,16 @@ extends Node2D
 
 const cell_size: int = 32
 const half_cell_size: int = cell_size >> 1 #we don't need to set Project->GDScript->Integer Division Warnings to Ignore
-static var level: int = 5
+
+static var level: int = 1
 static var steps: int = 0
+
 static var PlayField: TileMap
 static var Player: CharacterBody2D
 
+static var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
+static var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
+	
 var TreasureScene: PackedScene = preload("res://Treasure.tscn")
 var DoorScene: PackedScene = preload("res://Door.tscn")
 
@@ -26,14 +31,19 @@ func check_level_files() -> FileAccess:
 		return null
 	return f
 
+func clear_tiles() -> void:
+	PlayField.clear()
+	for i in 30:
+		for j in 15:
+			PlayField.set_cell(0, Vector2i(i, j), 0, empty_tiles.pick_random())
+
 func read_level() -> void:
 	steps = 0
 	var x: int = 0
 	var y: int = 0
-	var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
-	var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
 	
 	delete_old_objects()
+	clear_tiles()
 	
 	var f = check_level_files()
 	if null == f:
@@ -58,8 +68,6 @@ func read_level() -> void:
 			if c == "P":
 				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 				Player.set_grid_position(Vector2i(x, y), false)
-			if c == ' ' || c == '.':
-				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
 			x += 1
 		y += 1
 		x = 0
