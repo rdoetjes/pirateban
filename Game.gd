@@ -81,7 +81,7 @@ func _ready():
 	tileset.set_tile_size(Vector2i(cell_size,cell_size))
 	Player = $Player
 	read_level()
-
+	
 func add_step() -> void:
 	steps += 1
 
@@ -105,12 +105,13 @@ func check_all_crates_in_exit() -> bool:
 		return true
 	return false
 	
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
 	if check_all_crates_in_exit():
-		level += 1
-		read_level()
+		$UI/LevelCleared.visible = true
 
 func _on_check_button_pressed():
 	if $AudioStreamPlayer2D.playing: 
@@ -122,3 +123,8 @@ func delete_old_objects() -> void:
 	for child in self.get_children():
 		if child is Treasure || child is Door:
 			child.queue_free()
+
+func _on_button_pressed():
+	level += 1
+	read_level()
+	$UI/LevelCleared.visible = false
