@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var grid_pos: Vector2i
 var enable_input: bool = true

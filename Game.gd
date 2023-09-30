@@ -7,7 +7,7 @@ static var level: int = 1
 static var steps: int = 0
 
 static var PlayField: TileMap
-static var Player: CharacterBody2D
+static var Player: Area2D
 
 static var wall_tiles = [Vector2i(1,1), Vector2i(2,1), Vector2i(3,1), Vector2i(4,1)]
 static var empty_tiles = [Vector2i(1,2), Vector2i(2,2), Vector2i(3,2), Vector2i(4,2)]
