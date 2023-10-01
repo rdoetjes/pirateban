@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyy0atwmvidd3"]
+
+[ext_resource type="Script" path="res://Start.gd" id="1_pa1w7"]
+[ext_resource type="Texture2D" uid="uid://c6dy020l0hptp" path="res://images/title.png" id="1_u8ft5"]
+[ext_resource type="Theme" uid="uid://bwslt4y0xo0yw" path="res://Theme.tres" id="2_odlvv"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_pa1w7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u8ft5")
+expand_mode = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "
+
+
+
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_odlvv")
+theme_override_colors/font_color = Color(0.823529, 0.713726, 0.541176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.388235, 0.0862745, 0.0431373, 1)
+text = "Your goal is to move all the treasures onto
+an exit door.
+Then  you will progress to the next mansion
+where you can find even more loot.
+You can however, only push the treasure chests! 
+And you can only push one at a time!
+They are afterall, far too heavy.
+Whenever you get stuck, and you will get stuck! 
+Press 'R' to restart the level."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_odlvv")
+text = "START"
+
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -84,7 +84,7 @@ func _ready():
 	
 func add_step() -> void:
 	steps += 1
-
+	
 func add_level() -> void:
 	level += 1
 
