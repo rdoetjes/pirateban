@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5kxetn5qfd3d"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8qkv1"]
-[ext_resource type="Texture2D" uid="uid://c06pjigfmsn62" path="res://images/Icon9.png" id="2_e4adg"]
+[ext_resource type="Texture2D" uid="uid://b8ytvs0e1odjk" path="res://images/pirate1.png" id="2_yotwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7htvx"]
 
@@ -16,7 +16,7 @@ shape = SubResource("RectangleShape2D_7htvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("2_e4adg")
+texture = ExtResource("2_yotwj")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 z_index = 2
