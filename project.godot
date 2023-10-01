@@ -14,7 +14,10 @@ config/name="Piratban"
 config/description="Pirate Ban, is a clone of the infamous and wonderful Sokoban game, albeit with a Pirate theme."
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://images/Icon9.png"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://images/title.png"
+config/icon="res://images/pirate1.png"
+boot_splash/minimum_display_time=2000
 
 [display]
 
