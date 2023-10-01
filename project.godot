@@ -15,9 +15,9 @@ config/description="Pirate Ban, is a clone of the infamous and wonderful Sokoban
 run/main_scene="res://Start.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/image="res://images/title.png"
 config/icon="res://images/pirate1.png"
-boot_splash/minimum_display_time=2000
 
 [display]
 
