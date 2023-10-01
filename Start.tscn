@@ -44,6 +44,9 @@ text = "
 
 
 
+
+
+
 "
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
