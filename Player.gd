@@ -12,7 +12,7 @@ func _ready() -> void:
 func process_input()-> void:
 	if Input.is_action_just_pressed("ui_up"):
 		if (grid_pos.y > 0):
-			set_grid_position(Vector2i(grid_pos.x, grid_pos.y-1), true)			
+			set_grid_position(Vector2i(grid_pos.x, grid_pos.y-1), true)
 	elif Input.is_action_just_pressed("ui_down"):
 		if (grid_pos.y < 14):
 			set_grid_position(Vector2i(grid_pos.x, grid_pos.y+1), true)

@@ -72,6 +72,7 @@ func read_level() -> void:
 		y += 1
 		x = 0
 	f.close()
+	Player.enable_game_input()
 	$UI/PanelContainer/HBoxContainer/LevelLbl.text = "LEVEL: "+str(level)
 
 # Called when the node enters the scene tree for the first time.
@@ -109,6 +110,7 @@ func check_all_crates_in_exit() -> bool:
 func _process(_delta) -> void:
 	$UI/PanelContainer/HBoxContainer/StepsLbl.text = "STEPS: "+str(steps)
 	if check_all_crates_in_exit():
+		Player.disable_game_input()
 		$UI/LevelCleared.visible = true
 
 func _on_check_button_pressed():
