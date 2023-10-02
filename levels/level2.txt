@@ -1,9 +1,9 @@
-      WPWW         
-      W  W          
-      W  W          
-      D  W         
-      W WWWW       
-     WWT  WW    
-      DT  WW
-     WWWWWWW       
-                   
+	  WPWW         
+	  W  W          
+	  W  W          
+	  D  W         
+	  W WWWW       
+	 WWT  WW    
+	  DT  WW
+	 WWWWWWW       
+				   
