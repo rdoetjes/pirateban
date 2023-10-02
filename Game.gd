@@ -3,7 +3,7 @@ extends Node2D
 const cell_size: int = 32
 const half_cell_size: int = cell_size >> 1 #we don't need to set Project->GDScript->Integer Division Warnings to Ignore
 
-static var level: int = 5
+static var level: int = 1
 static var steps: int = 0
 
 const WIDTH = 30
