@@ -18,10 +18,9 @@ var DoorScene: PackedScene = preload("res://Door.tscn")
 func check_level_files() -> FileAccess:
 	#iterate down the levels, when a level file can't be found to find the last level
 	while not FileAccess.file_exists("res://levels/level"+str(level)+".txt"):
-		level -= 1
-		if level < 0:
-			printerr("Could find valid level")
-			get_tree().quit()
+		level += 1
+		if level >= 9999:
+			get_tree().change_scene_to_file("res://Won.tscn")
 			return null
 			
 	var f = FileAccess.open("res://levels/level"+str(level)+".txt", FileAccess.READ)	
