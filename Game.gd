@@ -6,6 +6,9 @@ const half_cell_size: int = cell_size >> 1 #we don't need to set Project->GDScri
 static var level: int = 1
 static var steps: int = 0
 
+const WIDTH = 30
+const HEIGHT = 15
+
 static var PlayField: TileMap
 static var Player: Area2D
 
@@ -32,8 +35,8 @@ func check_level_files() -> FileAccess:
 
 func clear_tiles() -> void:
 	PlayField.clear()
-	for i in 30:
-		for j in 15:
+	for i in WIDTH:
+		for j in HEIGHT:
 			PlayField.set_cell(0, Vector2i(i, j), 0, empty_tiles.pick_random())
 
 func read_level() -> void:

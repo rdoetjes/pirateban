@@ -14,13 +14,13 @@ func process_input()-> void:
 		if (grid_pos.y > 0):
 			set_grid_position(Vector2i(grid_pos.x, grid_pos.y-1), true)
 	elif Input.is_action_just_pressed("ui_down"):
-		if (grid_pos.y < 14):
+		if (grid_pos.y < get_parent().HEIGHT - 1):
 			set_grid_position(Vector2i(grid_pos.x, grid_pos.y+1), true)
 	elif Input.is_action_just_pressed("ui_left"):
 		if (grid_pos.x > 0):
 			set_grid_position(Vector2i(grid_pos.x-1, grid_pos.y), true)
 	elif Input.is_action_just_pressed("ui_right"):
-		if (grid_pos.x < 29):
+		if (grid_pos.x < get_parent().WIDTH - 1):
 			set_grid_position(Vector2i(grid_pos.x+1,grid_pos.y), true)
 	
 	elif Input.is_action_just_pressed("restart"):
