@@ -39,6 +39,26 @@ func clear_tiles() -> void:
 		for j in HEIGHT:
 			PlayField.set_cell(0, Vector2i(i, j), 0, empty_tiles.pick_random())
 
+func instantiate_door(x: int, y: int) -> void:
+	var Door = DoorScene.instantiate()
+	add_child(Door)
+	Door.name = "Door"+str(x)+"_"+str(y)
+	Door.set_grid_position(Vector2i(x, y))
+
+func instantiate_treasure(x: int, y: int) -> void:
+	PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+	var Treasure =  TreasureScene.instantiate()
+	Treasure.name = "Treasure"+str(x)+"_"+str(y)
+	add_child(Treasure) 
+	Treasure.set_grid_position(Vector2i(x, y), false)
+
+func instantiate_wall(x: int, y: int) -> void:
+	PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
+
+func instantiate_player(x: int, y: int) -> void:
+	PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
+	Player.set_grid_position(Vector2i(x, y), false)
+
 func read_level() -> void:
 	steps = 0
 	var x: int = 0
@@ -55,21 +75,13 @@ func read_level() -> void:
 		var line = f.get_line()
 		for c in line:
 			if c == 'W':
-					PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	
+				instantiate_wall(x, y)
 			if c == 'B' || c == 'D':
-				var Door = DoorScene.instantiate()
-				add_child(Door)
-				Door.name = "Door"+str(x)+"_"+str(y)
-				Door.set_grid_position(Vector2i(x, y))
+				instantiate_door(x, y)
 			if c == 'B' || c == 'T':
-				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-				var Treasure =  TreasureScene.instantiate()
-				Treasure.name = "Treasure"+str(x)+"_"+str(y)
-				add_child(Treasure) 
-				Treasure.set_grid_position(Vector2i(x, y), false)
+				instantiate_treasure(x, y)
 			if c == "P":
-				PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-				Player.set_grid_position(Vector2i(x, y), false)
+				instantiate_player(x, y)
 			x += 1
 		y += 1
 		x = 0
