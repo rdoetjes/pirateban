@@ -11,8 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup Godot 4
-      uses: firebelley/godot-action@v1.6.0
+    - name: Setup Godot 
+      uses: godotengine/godot-action@v1
+      with:
+        godot-version: 4.1
 
     - name: Build project Linux
       run: |
