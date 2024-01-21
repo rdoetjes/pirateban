@@ -1,0 +1,26 @@
+name: Build Godot 4 Project
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Godot 4
+      uses: firebelley/godot-action@v1.6.0
+
+    - name: Build project Linux
+      run: |
+        godot -v
+        godot --export "Linux/X11" ./project.godot
+
+    - name: Archive build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: godot-linux-build
+        path: ./export/linux/bin
