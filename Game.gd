@@ -40,17 +40,17 @@ func clear_tiles() -> void:
 			PlayField.set_cell(0, Vector2i(i, j), 0, empty_tiles.pick_random())
 
 func instantiate_door(x: int, y: int) -> void:
-	var Door = DoorScene.instantiate()
-	add_child(Door)
-	Door.name = "Door"+str(x)+"_"+str(y)
-	Door.set_grid_position(Vector2i(x, y))
+	var GDoor = DoorScene.instantiate()
+	add_child(GDoor)
+	GDoor.name = "Door"+str(x)+"_"+str(y)
+	GDoor.set_grid_position(Vector2i(x, y))
 
 func instantiate_treasure(x: int, y: int) -> void:
 	PlayField.set_cell(0, Vector2i(x, y), 0, empty_tiles.pick_random())	
-	var Treasure =  TreasureScene.instantiate()
-	Treasure.name = "Treasure"+str(x)+"_"+str(y)
-	add_child(Treasure) 
-	Treasure.set_grid_position(Vector2i(x, y), false)
+	var GTreasure =  TreasureScene.instantiate()
+	GTreasure.name = "Treasure"+str(x)+"_"+str(y)
+	add_child(GTreasure) 
+	GTreasure.set_grid_position(Vector2i(x, y), false)
 
 func instantiate_wall(x: int, y: int) -> void:
 	PlayField.set_cell(0, Vector2i(x, y), 0, wall_tiles.pick_random())	

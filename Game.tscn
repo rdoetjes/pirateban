@@ -204,15 +204,10 @@ metadata/_edit_group_ = true
 light_mask = 3
 visibility_layer = 3
 tile_set = SubResource("TileSet_yvl2m")
-cell_quadrant_size = 32
+rendering_quadrant_size = 32
 format = 2
 layer_0/name = "walls"
 layer_1/name = "tressure"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_70xan")]
